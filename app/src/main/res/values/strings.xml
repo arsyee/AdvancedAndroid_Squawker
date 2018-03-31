@@ -34,5 +34,7 @@
 
     <string name="follow_summary_not_following">Not Following</string>
     <string name="follow_summary_following">Following</string>
+    <string name="channel_name">MAIN_CHANNEL</string>
+    <string name="channel_description">Squawker Main Notification Channel</string>
 
 </resources>
