@@ -58,11 +58,12 @@ public class SquawkContract {
     public static final String JLIN_KEY = "key_jlin";
     public static final String LYLA_KEY = "key_lyla";
     public static final String NIKITA_KEY = "key_nikita";
+    public static final String TIBI_KEY = "key_tibi";
     public static final String TEST_ACCOUNT_KEY = "key_test";
 
 
     public static final String[] INSTRUCTOR_KEYS = {
-            ASSER_KEY, CEZANNE_KEY, JLIN_KEY, LYLA_KEY, NIKITA_KEY
+            ASSER_KEY, CEZANNE_KEY, JLIN_KEY, LYLA_KEY, NIKITA_KEY, TIBI_KEY
     };
 
     /**

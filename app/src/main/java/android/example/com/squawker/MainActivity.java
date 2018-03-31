@@ -16,6 +16,7 @@
 
 package android.example.com.squawker;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.example.com.squawker.following.FollowingPreferenceActivity;
@@ -34,6 +35,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+
+import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity implements
         LoaderManager.LoaderCallbacks<Cursor> {
@@ -85,6 +88,22 @@ public class MainActivity extends AppCompatActivity implements
 
         // Start the loader
         getSupportLoaderManager().initLoader(LOADER_ID_MESSAGES, null, this);
+
+        getContentResolver().delete(SquawkProvider.SquawkMessages.CONTENT_URI, null, null);
+
+        ContentValues values = new ContentValues();
+
+        values.put(SquawkContract.COLUMN_DATE, Calendar.getInstance().getTimeInMillis() - 2L * 60L * 1000L);
+        values.put(SquawkContract.COLUMN_AUTHOR_KEY, SquawkContract.LYLA_KEY);
+        values.put(SquawkContract.COLUMN_AUTHOR, "Lyla");
+        values.put(SquawkContract.COLUMN_MESSAGE, "This is the first message");
+        getContentResolver().insert(SquawkProvider.SquawkMessages.CONTENT_URI, values);
+
+        values.put(SquawkContract.COLUMN_DATE, Calendar.getInstance().getTimeInMillis() - 3L * 60L* 60L * 1000L);
+        values.put(SquawkContract.COLUMN_AUTHOR_KEY, SquawkContract.TIBI_KEY);
+        values.put(SquawkContract.COLUMN_AUTHOR, "Tibi");
+        values.put(SquawkContract.COLUMN_MESSAGE, "Tibi's message");
+        getContentResolver().insert(SquawkProvider.SquawkMessages.CONTENT_URI, values);
 
     }
 
